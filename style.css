@@ -1,0 +1,1530 @@
+:root {
+  --primary: #f6f1e9;
+  --background: #ffd93d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-image: url("bg\ kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 100px;
+  right: 100px;
+  z-index: 9999;
+}
+
+.navbar .logo-48 img {
+  margin-top: 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.centered-image-container {
+  width: 850px;
+  height: 850px;
+  background-image: url("judul.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.navbar .logo-dkv img {
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+}
+
+.navbar .logo-48,
+.navbar .logo-dkv {
+  position: relative;
+}
+
+.navbar .logo-48::before,
+.navbar .logo-dkv::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90px;
+  height: 150px;
+  background-color: white;
+  border-radius: 40px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: -1;
+}
+
+.navbar .logo-48 img {
+  margin-top: 10px;
+  width: 70px;
+  height: auto;
+}
+
+.navbar .logo-dkv img {
+  margin-top: 0;
+  width: 70px;
+  height: auto;
+}
+
+.navbar .text {
+  position: absolute;
+  left: 50%;
+  /* Nilai top yang disesuaikan agar di bawah judul */
+  top: 180px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Base style untuk kedua tombol */
+.btn-image {
+  width: 500px;
+  height: 500px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  transition: background-image 0.3s ease-in-out;
+}
+
+.mulai-btn {
+  background-image: url("mulai-normal.png");
+}
+
+.mulai-btn:hover {
+  background-image: url("mulai-hover.png");
+}
+
+/* Tombol Kredit */
+.credit-btn {
+  background-image: url("credit-normal.png");
+}
+
+.credit-btn:hover {
+  background-image: url("credit-hover.png");
+}
+.sound {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+/* Maskot Ngintip */
+.maskot-container {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.maskot-container video {
+  width: 355px;
+  height: auto;
+  pointer-events: none;
+  animation: floatOnce 1.5s ease-out forwards;
+}
+
+.sound a {
+  color: #4f200d;
+}
+
+.info {
+  display: flex;
+  padding: 2rem;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+
+.info a {
+  color: #4f200d;
+}
+
+#info:hover {
+  color: white;
+}
+
+/* About Section */
+#about-section {
+  display: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+/* Tombol back */
+.btnBack {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: #4f200d;
+  border: none;
+  cursor: pointer;
+}
+
+.btnBack:hover {
+  color: white;
+}
+
+/* Konten About */
+.centered-image-about {
+  width: 450px;
+  height: 450px;
+  background-image: url("tentang-Photoroom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+#konten {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#about-section .shape-box {
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 700px;
+  height: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#about-section .shape-box p {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  color: #4f200d;
+}
+
+/* Credit */
+#credit-section {
+  display: none;
+}
+
+.credit-section {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  background-image: url(bg\ kelas.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.centered-image-penyusun {
+  width: 450px;
+  height: 450px;
+  background-image: url("penyusun-Photoroom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.btn-back {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f200d;
+}
+
+.btn-back:hover {
+  color: white;
+}
+
+#isian {
+  display: flex;
+  top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Container Kartu */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  align-items: center;
+  justify-items: center;
+  margin: 20px auto;
+  max-width: 1000px;
+  padding: 10px;
+  margin-top: 135px;
+}
+
+/* Flip Card */
+.card {
+  width: 160px;
+  height: 220px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Animasi Flip */
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Depan Belakang */
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Tampilan Depan */
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tampilan Belakang (Nama+Job) */
+.card-back {
+  background: white;
+  color: #4f200d;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-back h3 {
+  margin: 10px 0 6px;
+}
+
+.card-back p {
+  margin: 0;
+}
+
+/* Section Mulai */
+#mulai-section {
+  display: none;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.mulai-section {
+  background-image: url("bg\ kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 20px 0;
+}
+
+.image-container {
+  width: 500px;
+  height: 500px;
+  background-image: url("judul.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+#maskot1 {
+  display: none;
+  opacity: 0;
+  transform-origin: opacity 1s ease;
+}
+
+.maskot-mulai {
+  position: absolute;
+  bottom: 0;
+  left: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.maskot-mulai img {
+  width: 400px;
+  height: auto;
+  pointer-events: none;
+}
+
+#maskot1 video {
+  width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+.btnBack {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f200d;
+}
+
+.btnBack:hover {
+  color: white;
+}
+
+/* Sidebar Shape */
+#menu-shape {
+  display: none;
+}
+
+.menu-shape {
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  flex-direction: column;
+  top: 0;
+  right: -260px;
+  width: 260px;
+  height: 100%;
+  background: rgba(255, 255, 255, 50%);
+  color: #4f200d;
+  transition: right 0.3s ease;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.2);
+  z-index: 3000;
+  padding: 20px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.menu-shape.active {
+  right: 0;
+}
+
+/* Halaman Tujuan Pembelajaran */
+.tujuan-section {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 20px 40px;
+  position: relative;
+  z-index: 9999;
+  height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+  background-image: url("bg\ kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* Tombol Back */
+.btnBack {
+  position: absolute;
+  top: 50px;
+  left: 50px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #4f200d;
+}
+
+.btnBack:hover {
+  color: #fff;
+}
+
+/* Judul */
+h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  color: #ffd93d;
+}
+
+/* Daftar Tujuan */
+.tujuan-list {
+  list-style: none;
+  margin-top: 50px;
+  padding: 0;
+  width: 100%;
+}
+
+.tujuan-list li a {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 266, 0.6); /* shape di belakang teks */
+  padding: 15px 20px;
+  border-radius: 15px;
+  font-size: 22px;
+  color: #302f2f;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Submenu */
+.submenu {
+  max-height: 0; /* tersembunyi awal */
+  overflow: hidden;
+  list-style: none;
+  padding-left: 15px;
+  margin-top: 5px;
+  transition: max-height 0.4s ease, opacity 0.4s ease;
+  opacity: 0; /* efek fade juga */
+}
+
+.submenu li a {
+  display: inline-block;
+  font-size: 14px;
+  color: #4f200d;
+  text-decoration: none;
+  background-color: rgba(255, 217, 66, 0.3);
+  padding: 5px 10px;
+  border-radius: 12px;
+  margin: 3px 0;
+  transition: background 0.3s ease;
+}
+
+.submenu li a:hover {
+  background-color: rgba(255, 217, 66, 0.6);
+}
+
+.has-submenu > a {
+  cursor: pointer;
+}
+/* Tombol panah */
+.menu-toggle {
+  position: absolute;
+  left: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 50%);
+  border: none;
+  color: #4f200d;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 3100;
+}
+
+.menu-toggle i {
+  pointer-events: none;
+}
+
+/* Text Box */
+#text-box {
+  display: none;
+  opacity: 0;
+  transform-origin: opacity 1s ease;
+}
+
+.text-box {
+  left: 120px;
+  bottom: 100px;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  align-content: center;
+  width: 500px;
+  height: 250px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+}
+
+.text-box p {
+  text-align: center;
+}
+
+/* Isi menu */
+.menu-content {
+  padding: 60px 20px;
+  margin-top: 60px;
+  text-align: center;
+}
+
+.menu-content h3 {
+  margin-bottom: 15px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.menu-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.menu-content ul li {
+  margin: 10px 0;
+}
+
+.menu-content ul li a {
+  color: #4f200d;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.menu-content ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Halaman Evaluasi */
+#evaluasi-section {
+  display: none;
+  position: relative;
+  padding: 40px;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#isi-eval {
+  display: flex;
+  top: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 15px;
+}
+
+#isi-eval h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  color: #ffd93d;
+}
+
+.btnBack {
+  position: absolute;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  z-index: 1000;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  color: #4f200d;
+  border: none;
+  cursor: pointer;
+}
+
+.btnBack:hover {
+  color: white;
+}
+
+.shape-box {
+  align-content: center;
+  background-color: white;
+  border-radius: 20px;
+  padding: 20px;
+  width: 700px;
+  height: 300px;
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shape-box p {
+  margin: 20px;
+  text-align: center;
+  font-size: 28px;
+  color: #4f200d;
+  font-weight: 500;
+}
+
+/* Halaman Auditorial */
+
+#auditorial-section {
+  display: none;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+  background-image: url("bg\ kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.auditorial-mode {
+  width: 500px;
+  height: 500px;
+  background-image: url("auditorial.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Maskot */
+#maskotAuditorial,
+#text-box-auditorial {
+  margin-bottom: 20px;
+}
+
+#maskotAuditorial {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Maskot Auditorial */
+#maskotAuditorial video {
+  width: 600px;
+  height: auto;
+  display: block;
+}
+
+/* Text box Auditorial */
+#text-box-auditorial {
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 50px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Tombol */
+#btnNextAuditorial {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4f200d;
+}
+
+#btnNextAuditorial svg {
+  width: 40px;
+  height: 40px;
+}
+
+#btnNextAuditorial:hover {
+  color: white;
+}
+
+/* Auditorial Videos */
+#auditorial-videos {
+  display: none;
+}
+
+.judul-carousel-auditori {
+  top: 120px;
+  width: 500px;
+  height: 500px;
+  background-image: url("auditorial.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.auditorial-videos {
+  position: relative;
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("bg kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.video-carousel {
+  position: relative;
+  top: 120px;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.video-track {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.video-item {
+  margin-top: 40px;
+  flex: 0 0 250px;
+  aspect-ratio: 16 / 9;
+  text-align: center;
+  opacity: 0.3;
+  transform: scale(0.7) rotateY(0deg);
+  pointer-events: none;
+  transition: all 0.5s ease;
+  transform-origin: center center;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.video-item.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.video-item.active .pause-icon {
+  display: block; /* Hanya tampilkan ikon di video yang sedang aktif */
+}
+
+.video-item.left {
+  transform: scale(0.9);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.video-item.right {
+  transform: scale(0.9);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.video-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.video-cover .pause-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%); /* Memusatkan ikon dengan akurat */
+  color: black; /* Warna ikon */
+  opacity: 100%; /* Keterlihatan ikon */
+  z-index: 5; /* Pastikan ikon berada di atas gambar */
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+.video-cover:hover .pause-icon {
+  color: white;
+}
+
+/* Atur tampilan ikon agar awalnya tidak terlihat */
+.pause-icon {
+  display: none;
+}
+
+.video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#btnPrevVideo {
+  left: 20px;
+}
+
+#btnNextVideo {
+  right: 20px;
+}
+
+/* Text box di bawah carousel */
+.video-text-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 12px 20px;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Halaman Detail Video Auditori */
+#video-detail-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-image: url("bg\ kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.video-detail-mascot {
+  width: 450px;
+  height: auto;
+  z-index: 20;
+  margin-right: 60px;
+  align-self: flex-end;
+}
+
+.video-detail-mascot video {
+  width: 700px;
+  height: auto;
+  display: block;
+}
+
+#mainVideoContainer {
+  flex-grow: 1;
+  max-width: 800px;
+  margin-bottom: 5px;
+  align-self: center;
+}
+.video-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+}
+
+#mainVideoPlayer {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.discussion-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Halaman Visual */
+
+#visual-section {
+  display: none;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 90px;
+  background-image: url("bg kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.visual-mode {
+  width: 400px;
+  height: 400px;
+  background-image: url("visual mode-Photoroom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Maskot */
+#maskotVisual,
+#text-box-visual {
+  margin-bottom: 20px;
+}
+
+#maskotVisual {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Maskot Visual */
+#maskotVisual video {
+  width: 600px;
+  height: auto;
+  display: block;
+}
+
+/* Text box Visual */
+#text-box-visual {
+  background-color: white;
+  border-radius: 25px;
+  padding: 10px 50px;
+  max-width: 500px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* Tombol */
+#btnNextVisual {
+  position: absolute;
+  bottom: 100px;
+  right: 100px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4f200d;
+}
+
+#btnNextVisual svg {
+  width: 40px;
+  height: 40px;
+}
+
+#btnNextVisual:hover {
+  color: white;
+}
+
+/* Visual Videos */
+#visual-videos {
+  display: none;
+}
+
+.judul-carousel-visual {
+  top: 120px;
+  width: 400px;
+  height: 400px;
+  background-image: url("visual mode-Photoroom.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: default;
+}
+
+.visual-videos {
+  position: relative;
+  padding: 40px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("bg kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.visual-video-carousel {
+  position: relative;
+  top: 120px;
+  width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 80px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.visual-video-track {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+.visual-video-item {
+  margin-top: 40px;
+  flex: 0 0 250px;
+  aspect-ratio: 16 / 9;
+  text-align: center;
+  opacity: 0.3;
+  transform: scale(0.7) rotateY(0deg);
+  pointer-events: none;
+  transition: all 0.5s ease;
+  transform-origin: center center;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.visual-video-item.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  z-index: 10;
+}
+
+.visual-video-item.active .pause-icon {
+  display: block; /* Hanya tampilkan ikon di video yang sedang aktif */
+}
+
+.visual-video-item.left {
+  transform: scale(0.9);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.visual-video-item.right {
+  transform: scale(0.9);
+  opacity: 0.6;
+  z-index: 5;
+}
+
+.visual-video-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.visual-video-cover .pause-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  transform: translate(-50%, -50%); /* Memusatkan ikon dengan akurat */
+  color: black; /* Warna ikon */
+  opacity: 100%; /* Keterlihatan ikon */
+  z-index: 5; /* Pastikan ikon berada di atas gambar */
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+.visual-video-cover:hover .pause-icon {
+  color: white;
+}
+
+.pause-icon {
+  display: none;
+}
+
+.visual-video-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+}
+
+#btnPrevVidio {
+  left: 20px;
+}
+
+#btnNextVidio {
+  right: 20px;
+}
+
+/* Text box di bawah carousel */
+.visual-video-text-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 12px 20px;
+  max-width: 600px;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Halaman Detail Video Visual */
+#visual-video-detail-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background-image: url("bg kelas.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.video-detail-mascot-visual {
+  width: 400px;
+  height: auto;
+  z-index: 20;
+  margin-right: 30px;
+  align-self: flex-end;
+}
+
+.video-detail-mascot-visual video {
+  width: 500px;
+  height: auto;
+  display: block;
+}
+
+#mainVisualVideoContainer {
+  flex-grow: 1;
+  max-width: 800px;
+  margin-bottom: 5px;
+  align-self: center;
+}
+.visual-video-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  width: 100%;
+  padding: 20px;
+}
+
+#mainVisualVideoPlayer {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.visual-discussion-box {
+  background: #fff;
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Notifkasi Soal */
+.notification-container {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out,
+    opacity 0.5s ease;
+  z-index: 9999;
+}
+
+/* Kelas untuk memunculkan notifikasi dengan animasi */
+.notification-container.show {
+  opacity: 1;
+}
+
+.notification-container p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+
+/* Notifkasi Soal Visual */
+.visual-notification-container {
+  position: fixed;
+  top: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 100px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  cursor: pointer;
+  opacity: 0;
+  transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out,
+    opacity 0.5s ease;
+  z-index: 9999;
+}
+
+/* Kelas untuk memunculkan notifikasi dengan animasi */
+.visual-notification-container.show {
+  opacity: 1;
+}
+
+.visual-notification-container p {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #333;
+  text-align: center;
+}
+/* QUIZ PAGE */
+
+/* --- Halaman Kuis (Full Page) --- */
+.full-page-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f9f0c1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* Tambahkan padding horizontal yang lebih besar */
+  padding: 5rem 4rem 2rem 4rem;
+  z-index: 10000;
+  overflow-y: auto;
+}
+
+.full-page-section.hidden {
+  display: none;
+}
+
+/* --- Container Konten Kuis --- */
+.evaluasi-content-container {
+  /* Gunakan lebar yang lebih kecil */
+  width: 100%;
+  max-width: 800px;
+  background-color: white;
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  color: #4f200d;
+}
+
+/* --- Judul dan Subjudul --- */
+.quiz-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.quiz-subtitle {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+}
+
+/* --- Daftar Soal --- */
+.soal-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Setiap Item Soal --- */
+.soal-item {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+.soal-item p {
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+/* --- Opsi Jawaban (Tombol) --- */
+.opsi-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.8rem;
+}
+
+.opsi-btn {
+  width: auto;
+  padding: 1rem 1.5rem;
+  border: 2px solid #ff9a00;
+  border-radius: 12px;
+  background-color: #fff8e8;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #4f200d;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.opsi-btn:hover {
+  background-color: #ff9a00;
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* --- Warna Feedback Jawaban --- */
+.opsi-btn.correct {
+  background-color: #90d4a8;
+  border-color: #4caf50;
+  color: white;
+}
+
+.opsi-btn.wrong {
+  background-color: #ef9a9a;
+  border-color: #f44336;
+  color: white;
+}
+
+.feedback {
+  margin-top: 1rem;
+  font-style: italic;
+  font-weight: bold;
+  color: #4f200d;
+}
