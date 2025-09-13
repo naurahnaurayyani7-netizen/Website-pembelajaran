@@ -46,7 +46,7 @@ const videoData = {
     vo: "introduce follow shot.mp3",
   },
   5: {
-    src: "Teknik Orbit final.mp4",
+    src: "Teknik Orbit Final new.mp4",
     discussion: "Video Teknik Orbit Shot",
     vo: "introduce orbit shot.mp3",
   },
@@ -713,7 +713,7 @@ const visualVideoData = {
     vo: "introduce follow shot.mp3",
   },
   5: {
-    src: "Teknik Orbit final.mp4",
+    src: "Teknik Orbit Final new.mp4",
     discussion: "Video Teknik Orbit Shot",
     vo: "introduce orbit shot.mp3",
   },
