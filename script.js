@@ -46,7 +46,7 @@ const videoData = {
     vo: "introduce follow shot.mp3",
   },
   5: {
-    src: "Teknik Orbit Final new.mp4",
+    src: "Teknik Orbit final.mp4",
     discussion: "Video Teknik Orbit Shot",
     vo: "introduce orbit shot.mp3",
   },
@@ -97,22 +97,7 @@ function handleQuizNotification(videoId) {
     if (videoId === "9") {
       setTimeout(() => {
         quizNotification.classList.add("show");
-      }, 80000); // Tampilkan setelah 7 detik
-    }
-  }
-}
-
-function handleVisualQuizNotification(videoId) {
-  // Periksa apakah video yang diputar adalah video terakhir (ID 9)
-  if (videoId === "9") {
-    const visualQuizNotification = document.getElementById(
-      "visual-quiz-notification-container"
-    );
-    if (visualQuizNotification) {
-      // Tunda munculnya notifikasi 3 detik setelah video terakhir diputar
-      setTimeout(() => {
-        visualQuizNotification.classList.add("show");
-      }, 80000);
+      }, 7000); // Tampilkan setelah 7 detik
     }
   }
 }
@@ -710,38 +695,47 @@ const visualVideoData = {
   1: {
     src: "Teknik Tilting Fix.mp4",
     discussion: "Video Teknik Tilting",
+    vo: "introduce tilting.mp3",
   },
   2: {
     src: "Crabbing Vidio.mp4",
     discussion: "Video Teknik Crabbing",
+    vo: "introduce crabbing.mp3",
   },
   3: {
     src: "Teknik Panning.mp4",
     discussion: "Video Teknik Panning",
+    vo: "introduce panning.mp3",
   },
   4: {
     src: "Follow Shot New.mp4",
     discussion: "Video Teknik Follow Shot",
+    vo: "introduce follow shot.mp3",
   },
   5: {
-    src: "Teknik Orbit Final new.mp4",
+    src: "Teknik Orbit final.mp4",
     discussion: "Video Teknik Orbit Shot",
+    vo: "introduce orbit shot.mp3",
   },
   6: {
     src: "Pedestal Vidio.mp4",
     discussion: "Video Teknik Pedestal Shot",
+    vo: "pedestal introduce.mp3",
   },
   7: {
     src: "Handheld Fix.mp4",
     discussion: "Video Teknik Handheld Shot",
+    vo: "intro handheld.mp3",
   },
   8: {
     src: "Dutch Tilt fix.mp4",
     discussion: "Video Teknik Dutch Tilt",
+    vo: "intro dutch tilt.mp3",
   },
   9: {
     src: "Rack Focus final.mp4",
     discussion: "Video Teknik Rack Focus",
+    vo: "intro rack focus.mp3",
   },
 };
 
@@ -1101,54 +1095,3 @@ items.forEach((item, index) => {
 });
 
 // Quiz Visual
-function handleVisualQuizNotification(videoId) {
-  // Periksa apakah video yang diputar adalah video terakhir (ID 9)
-  if (videoId === "9") {
-    const visualQuizNotification = document.getElementById(
-      "visual-quiz-notification-container"
-    );
-    if (visualQuizNotification) {
-      // Tunda munculnya notifikasi 3 detik setelah video terakhir diputar
-      setTimeout(() => {
-        visualQuizNotification.classList.add("show");
-      }, 80000);
-    }
-  }
-}
-
-// Event listener untuk tombol notifikasi kuis di visual
-function attachVisualNotificationListener() {
-  const visualQuizNotificationBtn = document.querySelector(
-    "#visual-quiz-notification-container .notification-btn"
-  );
-  const visualQuizNotification = document.getElementById(
-    "visual-quiz-notification-container"
-  );
-
-  if (visualQuizNotificationBtn) {
-    visualQuizNotificationBtn.addEventListener("click", () => {
-      // Sembunyikan notifikasi setelah diklik
-      if (visualQuizNotification) {
-        visualQuizNotification.classList.remove("show");
-      }
-      // Kirim sinyal khusus ke script lain untuk memicu kuis visual
-      const event = new CustomEvent("showQuizVisual");
-      document.dispatchEvent(event);
-    });
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  attachVisualNotificationListener();
-});
-
-visualItems.forEach((item, index) => {
-  item.addEventListener("click", () => {
-    if (item.classList.contains("active")) {
-      const videoId = String(index + 1);
-      showVisualVideoDetail(videoId);
-
-      handleVisualQuizNotification(videoId);
-    }
-  });
-});
