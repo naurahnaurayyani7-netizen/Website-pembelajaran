@@ -4,7 +4,7 @@ feather.replace();
 const soundBtn = document.getElementById("soundBtn");
 const bgMusic = document.getElementById("bgMusic");
 
-let currentVolume = 0.4;
+let currentVolume = 0.2;
 bgMusic.volume = currentVolume;
 
 soundBtn.addEventListener("click", function (e) {
@@ -695,47 +695,38 @@ const visualVideoData = {
   1: {
     src: "Teknik Tilting Fix.mp4",
     discussion: "Video Teknik Tilting",
-    vo: "introduce tilting.mp3",
   },
   2: {
     src: "Crabbing Vidio.mp4",
     discussion: "Video Teknik Crabbing",
-    vo: "introduce crabbing.mp3",
   },
   3: {
     src: "Teknik Panning.mp4",
     discussion: "Video Teknik Panning",
-    vo: "introduce panning.mp3",
   },
   4: {
     src: "Follow Shot New.mp4",
     discussion: "Video Teknik Follow Shot",
-    vo: "introduce follow shot.mp3",
   },
   5: {
     src: "Teknik Orbit Final new.mp4",
     discussion: "Video Teknik Orbit Shot",
-    vo: "introduce orbit shot.mp3",
   },
   6: {
     src: "Pedestal Vidio.mp4",
     discussion: "Video Teknik Pedestal Shot",
-    vo: "pedestal introduce.mp3",
   },
   7: {
     src: "Handheld Fix.mp4",
     discussion: "Video Teknik Handheld Shot",
-    vo: "intro handheld.mp3",
   },
   8: {
     src: "Dutch Tilt fix.mp4",
     discussion: "Video Teknik Dutch Tilt",
-    vo: "intro dutch tilt.mp3",
   },
   9: {
     src: "Rack Focus final.mp4",
     discussion: "Video Teknik Rack Focus",
-    vo: "intro rack focus.mp3",
   },
 };
 
@@ -873,7 +864,25 @@ const visualDiscussionText = document.getElementById("visual-discussion-text");
 const visualVideoDetailPage = document.getElementById(
   "visual-video-detail-page"
 );
+const visualMascotVideo = document.querySelector(
+  ".video-detail-mascot-visual video"
+);
 const btnBackToVisual = document.getElementById("btnBackToVisual");
+
+// Fungsi untuk menghentikan maskot setelah durasi tertentu
+function stopMascotLoop(videoId) {
+  const mascotVideoVisual = document.querySelector(
+    ".video-detail-mascot-visual video"
+  );
+  const duration = videoDurations[videoId];
+
+  if (mascotVideo && duration) {
+    setTimeout(() => {
+      mascotVideoVisual.loop = false;
+      console.log(`Maskot berhenti loop setelah ${duration} detik.`);
+    }, duration * 1000); // Ubah detik menjadi milidetik
+  }
+}
 
 // Klik menu visual di sidebar
 halamanVisual.addEventListener("click", () => {
@@ -910,47 +919,44 @@ const voiceOverVisualPlayer = document.getElementById("voiceOverVisualPlayer");
 function showVisualVideoDetail(videoId) {
   document.getElementById("visual-videos").style.display = "none";
   document.getElementById("menuShape").style.display = "none";
-
   visualVideoDetailPage.style.display = "flex";
 
   const currentVideo = visualVideoData[videoId];
 
   if (currentVideo) {
+    // Set video utama
     visualVideoPlayer.src = currentVideo.src;
     visualDiscussionText.textContent = currentVideo.discussion;
-    visualVideoPlayer.muted = true;
+    visualVideoPlayer.muted = false;
+    visualVideoPlayer.currentTime = 0;
+    visualVideoPlayer
+      .play()
+      .catch((err) => console.log("Autoplay video utama diblokir", err));
 
-    if (currentVideo.vo && visualMascotVideo) {
-      voiceOverPlayer.src = currentVideo.vo;
-      voiceOverPlayer
+    // Set maskot
+    if (visualMascotVideo) {
+      visualMascotVideo.src = "garuk 2.webm";
+      visualMascotVideo.loop = true; // pastikan tidak loop
+      visualMascotVideo.currentTime = 0;
+      visualMascotVideo
         .play()
-        .catch((error) => console.error("Autoplay audio diblokir:", error));
-
-      visualMascotVideo.src = "lulu jelasin 1.webm";
-      visualMascotVideo.play();
-      visualMascotVideo.loop = true;
-
-      const duration = visualVideoDurations[videoId];
-      if (duration) {
-        console.log(
-          `Durasi VO: ${duration} detik. Maskot akan berhenti setelah ini.`
-        );
-
-        setTimeout(() => {
-          visualMascotVideo.loop = false;
-          console.log(
-            `Maskot berhasil berhenti loop untuk video ID: ${videoId}.`
-          );
-        }, duration * 1000);
-      }
+        .catch((err) => console.log("Autoplay maskot diblokir", err));
     }
+
+    // Event listener: ketika video utama selesai
+    visualVideoPlayer.onended = () => {
+      if (visualMascotVideo) {
+        visualMascotVideo.pause();
+        visualMascotVideo.currentTime = 0;
+        console.log("Maskot berhenti karena video utama selesai.");
+      }
+    };
   } else {
     visualDiscussionText.textContent = "Video tidak ditemukan.";
     visualVideoPlayer.src = "";
   }
   feather.replace();
 }
-
 // Tombol Kembali dari Halaman Detail Video Visual
 btnBackToVisual.addEventListener("click", () => {
   visualVideoDetailPage.style.display = "none";
