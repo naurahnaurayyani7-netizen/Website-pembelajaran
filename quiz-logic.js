@@ -1,11 +1,3 @@
-document.addEventListener("showQuiz", (event) => {
-  showQuizAuditorial();
-});
-
-document.addEventListener("showQuizVisual", (event) => {
-  showQuizVisual(); // Asumsi Anda akan membuat fungsi ini
-});
-
 // Data Soal dan Jawaban Kuis
 const soalQuiz = [
   {
@@ -144,10 +136,10 @@ const soalQuiz = [
       "Dalam iklan minuman energi, kamera merekam seorang atlet parkour yang sedang berlari dan melompat dari satu gedung ke gedung lain. Kamera bergerak mengikuti dari belakang, memperlihatkan kecepatan dan intensitas aksi secara nyata dan berkelanjutan. Mengapa teknik follow shot menjadi paling efektif digunakan dalam adegan tersebut?",
     answerKey: "D",
     answerExplanation:
-      "Esensi sinematografi adalah storytelling. Dutch Tilt bisa dilakukan dengan alat sederhana asalkan tujuannya jelas dan mendukung cerita.",
+      "Follow shot efektif untuk adegan aksi karena menjaga kesinambungan gerakan tokoh utama, membuat penonton merasa mengikuti langsung dari belakang, memperkuat rasa kecepatan, energi, dan urgensi.",
     options: [
       {
-        text: "A. Dutch Tilt hanya bisa dilakukan dengan kamera profesional",
+        text: "A. Karena follow shot dapat memperlihatkan semua latar dengan lebih luas",
         value: "A",
       },
       {
@@ -155,11 +147,11 @@ const soalQuiz = [
         value: "B",
       },
       {
-        text: "C. Teknik itu salah karena terlalu sederhana",
+        text: "C. Karena follow shot memungkinkan efek slow motion lebih mudah diterapkan",
         value: "C",
       },
       {
-        text: "D. Hasilnya pasti jelek karena tidak pakai alat mahal",
+        text: "D. Karena follow shot menjaga koneksi visual dan ritme gerak si atlet secara real time",
         value: "D",
       },
     ],
@@ -353,22 +345,24 @@ function attachQuizEventListeners() {
     });
   });
 }
-function showQuizPage() {
-  // Sembunyikan semua halaman lain
-  hideAllPages();
-  document.getElementById("evaluasi-quiz-page").classList.remove("hidden");
-  renderQuiz();
-}
-
-// <-- REVISI: Panggil fungsi showQuizPage() dari event showQuiz. -->
 document.addEventListener("showQuiz", () => {
-  showQuizPage();
+  // Tampilkan halaman kuis
+  document.getElementById("evaluasi-quiz-page").classList.remove("hidden");
+
+  // Memulai proses pembuatan soal kuis saat event diterima
+  renderQuiz();
 });
 
-// <-- REVISI: Panggil fungsi showQuizPage() dari event showQuizVisual. -->
-document.addEventListener("showQuizVisual", () => {
-  showQuizPage();
-});
+const quizNotificationBtn = document.querySelector(
+  "#quiz-notification-container .notification-btn"
+);
+const quizPage = document.getElementById("evaluasi-quiz-page");
+
+if (quizNotificationBtn) {
+  quizNotificationBtn.addEventListener("click", () => {
+    quizPage.classList.remove("hidden");
+  });
+}
 
 // Fungsi untuk menyembunyikan semua halaman
 function hideAllPages() {
@@ -403,7 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (currentId === "evaluasi-quiz-page") {
         showPage("evaluasi-section");
       } else if (currentId === "evaluasi-section") {
-        showPage("main-page");
+        showPage("main-page"); // Ganti 'main-page' dengan ID halaman utama Anda
       } else if (currentId === "auditorial-section") {
         showPage("mulai-section");
       } else if (currentId === "auditorial-videos") {
