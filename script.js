@@ -75,8 +75,8 @@ const videoData = {
 // Tambahkan data durasi voice over untuk setiap video
 const videoDurations = {
   // ID video sesuai dengan kunci di videoData
-  1: 20,
-  2: 30,
+  1: 21,
+  2: 31,
   3: 29,
   4: 11,
   5: 23,
